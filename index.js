@@ -8,8 +8,20 @@ import authRoutes from "./routes/auth.js";
 import commentRoutes from "./routes/comment.js";
 import videoRoutes from "./routes/video.js";
 
+
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(process.env.DATABASE_URI);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 const app = express();
 dotenv.config();
+
+connectDB();
 
 
 app.use(express.json());
@@ -45,19 +57,12 @@ app.use((error, request, response, next) => {
 });
 
 
-const connectToDatabase = () => {
-  mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(() => {
-      console.log("Connected to DB");
-    })
-    .catch((error) => {
-      throw error;
-    });
-};
 
-
-app.listen(process.env.PORT || 8000, () => {
-  connectToDatabase();
-  console.log("Connected to Server");
+mongoose.connection.once("open", () => {
+  console.log("Connected to mongoDB");
+  app.listen(PORT || 8000, () => {
+    console.log("Connected to Server");
+  });
 });
+
+
