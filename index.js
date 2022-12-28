@@ -66,3 +66,4 @@ mongoose.connection.once("open", () => {
 });
 
 
+export default app
