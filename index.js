@@ -21,7 +21,7 @@ const connectToDatabase = async () => {
 const app = express();
 dotenv.config();
 
-connectDB();
+connectToDatabase();
 
 
 app.use(express.json());
