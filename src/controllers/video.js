@@ -66,6 +66,7 @@ export const addViewToVideo = async (request, response, next) => {
 };
 // get random videos
 export const getRandomVideo = async (request, response, next) => {
+  
   try {
     const videos = await Video.aggregate([{ $sample: { size: 40 } }]);
     response.status(200).json(videos);
