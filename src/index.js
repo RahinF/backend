@@ -11,7 +11,7 @@ import videoRoutes from "./routes/video.js";
 
 const connectToDatabase = async () => {
   try {
-    await mongoose.connect(process.env.DATABASE_URI);
+    await mongoose.connect(process.env.MONGODB_URI);
   } catch (error) {
     console.log(error);
   }
@@ -58,10 +58,9 @@ app.use((error, request, response, next) => {
 
 mongoose.connection.once("open", () => {
   console.log("Connected to mongoDB");
-  app.listen(PORT || 8000, () => {
+  app.listen(process.env.PORT || 8000, () => {
     console.log("Connected to Server");
   });
 });
 
 
-export default app
