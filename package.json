@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon api/index.js"
+    "start": "nodemon src/index.js"
   },
   "author": "Rahin Farook",
   "license": "ISC",

@@ -31,9 +31,7 @@ const corsOptions = {
   credentials: true,
 };
 
-app.get('/', (req, res) => {
-  res.json({'message': 'ok'});
-})
+
 
 app.use(cors(corsOptions));
 app.use(cookieParser());
