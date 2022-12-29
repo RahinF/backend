@@ -27,7 +27,7 @@ connectToDatabase();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://dreamy-beignet-19a5b0.netlify.app"],
+  origin: ["http://localhost:3000", "https://watch-tv.onrender.com/"],
   credentials: true,
 };
 
