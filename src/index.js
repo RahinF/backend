@@ -27,7 +27,7 @@ connectToDatabase();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ["https://watch-tv.onrender.com", "http://localhost:3000"],
+  origin: [`${process.env.BACKEND_URL}`, "http://localhost:3000"],
   credentials: true,
 };
 
