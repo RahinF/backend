@@ -159,7 +159,10 @@ export const logout = async (request, response) => {
   const foundUser = await User.findOne({ refreshToken });
 
   // clear cookie
-  response.clearCookie("jwt");
+  response.clearCookie("jwt", {
+    sameSite: "none",
+    secure: true
+  });
 
   // clear cookie if user is not found
   if (!foundUser) return response.sendStatus(204);
