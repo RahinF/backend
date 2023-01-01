@@ -3,7 +3,6 @@
 ## Features
 - Get videos of other users, subscribers, via tags and search as well as randomly and trending
 - Users can like, unlike videos and comments as well as subscribe to other users
-- Nested comments system
 - JWT auth with login persistance
 
 ## Routes
